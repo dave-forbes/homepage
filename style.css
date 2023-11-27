@@ -1,23 +1,25 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-  display: grid;
-  place-items: center;
+  font-size: 20px;
 }
 
 section {
-  width: 90%;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 i {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
-i.fa-solid, i.fa-brands {
-  font-size: 1.7rem;
+i.fa-solid,
+i.fa-brands {
+  font-size: 1rem;
+}
+
+svg {
+  width: 1rem;
+  height: 1rem;
+  fill: white;
 }
 
 .shadow {
@@ -27,26 +29,42 @@ i.fa-solid, i.fa-brands {
 }
 
 .profile-pic {
-  position: relative;
   display: grid;
   place-items: center;
 }
 
+.intro {
+  position: relative;
+}
+
+.intro::after {
+  content: '';
+  position: absolute;
+  background-color: #4f9ae4;
+  inset: 0;
+  transform: skewY(-10deg);
+  z-index: -1;
+  top: -100px;
+  bottom: 800px;
+  -webkit-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+}
+
 img {
   width: 100%;
-  object-fit: cover;
 }
 
 .name.title {
   position: absolute;
-  bottom: 0;
-  color: rgb(250, 250, 250);
-  text-shadow: 3px 3px #1b62aa;
-  font-size: 3rem;
+  top: 0;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px #000000;
+  font-size: 2.5rem;
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 200;
   text-align: center;
   margin: 20px;
@@ -54,16 +72,17 @@ img {
 
 .about-me.text {
   font-size: 1.1rem;
-  color:rgb(0, 0, 0)
+  color: rgb(0, 0, 0)
 }
 
 .social.links {
   display: flex;
   justify-content: center;
   width: 100%;
-  gap:20px;
-  font-size: 2rem;
+  gap: 20px;
+  font-size: 1rem;
   margin: 30px 0;
+  color: black;
 }
 
 .project-screenshot {
@@ -80,6 +99,7 @@ img {
 .flex {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .project-description {
@@ -89,17 +109,94 @@ img {
 
 .my-work-container {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
 }
 
 .contact {
-  width: 100%;
-  background-color: #4f9ae4;
-  padding: 20px;
-  margin:0;
+  margin: 0;
   color: white;
+  background-color: #4f9ae4;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
+
+.contact-me-wrapper {
+  padding: 1rem;
+}
+
+/* .contact::after {
+  content: '';
+  position: absolute;
+  background-color: #4f9ae4;
+  inset: 0;
+  transform: skewY(-7deg);
+  z-index: -1;
+  bottom: -50px;
+} */
 
 .contact-info {
   margin: 1rem;
+}
+
+.projects,
+.intro {
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 500px) {
+  .intro {
+    height: 500px;
+  }
+
+  .intro::after {
+    bottom: 200px;
+    z-index: -1;
+  }
+
+  .about-me-wrapper {
+    width: 70%;
+    background-color: white;
+    margin-inline: auto;
+    -webkit-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+  }
+
+  .profile-pic {
+    width: 50%;
+    position: absolute;
+    top: 0;
+  }
+
+  .my-work.title {
+    text-align: left;
+    margin: 1rem 0;
+  }
+
+  .contact-me.title {
+    text-align: left;
+  }
+
+  .projects,
+  .intro {
+    padding-inline: 3rem;
+  }
+
+  .contact {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .social.links {
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+
+  .landscape-img {
+    margin-right: 1rem; 
+  }
 }
