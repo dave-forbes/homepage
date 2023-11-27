@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
 :root {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Lora', serif;
   font-size: 20px;
+}
+
+p {
+  font-size: 0.8rem;
 }
 
 section {
@@ -22,6 +28,20 @@ svg {
   fill: white;
 }
 
+.projects,
+.intro,
+.profile-pic,
+.contact,
+.pic {
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.pic {
+  position: relative;
+}
+
 .shadow {
   -webkit-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
@@ -33,11 +53,7 @@ svg {
   place-items: center;
 }
 
-.intro {
-  position: relative;
-}
-
-.intro::after {
+.background-header::after {
   content: '';
   position: absolute;
   background-color: #4f9ae4;
@@ -45,7 +61,7 @@ svg {
   transform: skewY(-10deg);
   z-index: -1;
   top: -100px;
-  bottom: 800px;
+  bottom: 200px;
   -webkit-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
@@ -58,21 +74,22 @@ img {
 .name.title {
   position: absolute;
   top: 0;
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px #000000;
-  font-size: 2.5rem;
+  text-shadow: 3px 3px #000000;
+  color: white;
+  font-size: 2.3rem;
 }
 
 .title {
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   font-weight: 200;
   text-align: center;
   margin: 20px;
 }
 
 .about-me.text {
-  font-size: 1.1rem;
-  color: rgb(0, 0, 0)
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.881);
+  font-weight: 200;
 }
 
 .social.links {
@@ -109,67 +126,66 @@ img {
 
 .my-work-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
 }
 
 .contact {
   margin: 0;
   color: white;
-  background-color: #4f9ae4;
-  padding-bottom: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  background-color: #4f9ae4;
 }
 
 .contact-me-wrapper {
   padding: 1rem;
 }
 
-/* .contact::after {
-  content: '';
-  position: absolute;
-  background-color: #4f9ae4;
-  inset: 0;
-  transform: skewY(-7deg);
-  z-index: -1;
-  bottom: -50px;
-} */
-
 .contact-info {
   margin: 1rem;
 }
 
-.projects,
-.intro {
-  max-width: 50rem;
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
 @media (min-width: 500px) {
-  .intro {
-    height: 500px;
+
+  .background-header::after {
+    height: 500px
   }
 
-  .intro::after {
-    bottom: 200px;
-    z-index: -1;
+  .intro {
+    margin: 7rem 2rem 2rem 2rem;
   }
 
   .about-me-wrapper {
-    width: 70%;
     background-color: white;
-    margin-inline: auto;
     -webkit-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
     box-shadow: 2px 4px 22px -11px rgba(0, 0, 0, 0.75);
+    padding: 2rem;
+    margin: 1rem;
   }
 
   .profile-pic {
-    width: 50%;
-    position: absolute;
-    top: 0;
+    margin-top: 5rem;
+    float: left;
+    width: 300px;
+
+  }
+
+  .name.title {
+    margin-top: 4rem;
+    right: 0;
+    top: 40px;
+  }
+
+  .social.links.about-me {
+    display: none;
+  }
+
+  .projects {
+    padding-inline: 3rem;
+    padding-bottom: 11rem;
   }
 
   .my-work.title {
@@ -179,11 +195,6 @@ img {
 
   .contact-me.title {
     text-align: left;
-  }
-
-  .projects,
-  .intro {
-    padding-inline: 3rem;
   }
 
   .contact {
@@ -196,7 +207,27 @@ img {
     margin-left: 1rem;
   }
 
-  .landscape-img {
-    margin-right: 1rem; 
+  picture.landscape {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .profile-pic {
+    width: 400px;
+  }
+
+  .about-me.title {
+    text-align: left;
+  }
+
+  .background-header::after {
+    bottom: 500px;
+    top: -200px;
+  }
+
+  .intro,
+  .contact {
+    margin-inline: auto;
   }
 }
